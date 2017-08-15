@@ -118,14 +118,14 @@ My additional German traffic signs, pictured above, possed some challenges for m
 |  | Image	|  | Prediction |
 |:--:|:-----------------:|:--:|:----:|
 | 28 | Children crossing | 14 | Stop |
-| 28 | Children crossing | 18 | General caution |
+| 28 | Children crossing | 36 | Go straight or right |
 | 17 | No entry | 7 | Speed limit (100km/h) |
 | 40 | Roundabout mandatory | 40 | Roundabout mandatory |
 | 23 | Slippery road | 23 | Slippery road |
 | 13 | Yield | 13 |Yield |
 ```
 New Image Accuracy = 50.0%
-Test Accuracy = 0.945
+Test Accuracy = 0.948
 ```
 The test data shows similar bias as the training data, which helps explains its higher accuracy vs the new signs:
 
