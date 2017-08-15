@@ -69,14 +69,29 @@ The following represents my final model:
 
 *Graph created by implementing the network layers in a MATLAB script*
 
-- The two convolution layers are 5x5 filters with 1x1 strides and valid padding.
-- The max pooling layers are 2x2 strides with valid padding.
-- For Training the following layers are added:
-	- softmax
-	- Adam optimizer + mean reduction
+| | Layer | Description |
+|-|--------|--------|
+| 0 | Input | 32x32x1 Pre-processed Image |
+| 1 | Convolution 5x5 | 1x1 stride, valid padding, output 28x28x8
+| 1a | Activation | ELU |
+| 1b | Normalization | depth_radius 2, alpha 2e-05, beta 0.75, bias 1.0
+| 1c | Max Pooling | 2x2 stride, output 14x14x8
+| 2 | Convolution 5x5 | 1x1 stride, valid padding, output 10x10x16
+| 2a | Activation | ELU |
+| 2b | Normalization | depth_radius 2, alpha 2e-05, beta 0.75, bias 1.0
+| 2c | Max Pooling | 2x2 stride, output 5x5x16
+| 2d | Flatten | output 400x1
+| 3 | Fully Connected | output 120x1
+| 3a | Activation | ELU |
+| 3b | Dropout | |
+| 4 | Fully Connected | output 84x1
+| 4a | Activation | ELU |
+| 4b | Dropout | |
+| 5 | Fully Connected | output 42x1
+| 5a | Activation | softmax |
 
 #### 3. Model Training
-During training, I discovered that each network change resulted in a hyperparameter adjustment. To simplify things, I did the majority of my testing with a higher learning rate to monitor how Epochs and Batch Size impact accuracy.  Once I settled in on those values, I followed the "keep calm and drop your learning rate" approach.  One interesting note is that when I changed ReLUs to ELUs with an Epoch of 150, my accuracy decended by 2% when complete.  Dropping the number of Epochs produced the results below:
+During training with an Adam optimizer, I discovered that each network change resulted in a hyperparameter adjustment. To simplify things, I did the majority of my testing with a higher learning rate to monitor how Epochs and Batch Size impact accuracy.  Once I settled in on those values, I followed the "keep calm and drop your learning rate" approach.  One interesting note is that when I changed ReLUs to ELUs with an Epoch of 150, my accuracy decended by 2% when complete.  Dropping the number of Epochs produced the results below:
 
 ![Final Validation Accuracy][iValAcc]
 
