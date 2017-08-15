@@ -131,7 +131,7 @@ The test data shows similar bias as the training data, which helps explains its 
 
 ![Testing Data Labels][iTestBarh]
 
-The softmax probabilities show that the network had a slim chance of correctly identifying the failing classes as they did not appear in the top five.  On the other end of the spectrum, the Yield sign almost hit an 80% probability.
+The softmax probabilities show that the network had a slim chance of correctly identifying the failing classes as they did not appear in the top five.  On the other end of the spectrum, the passing signs hit above an 88%, even reaching 100% probabilities for the Slippery road and Yield.
 
 *Failing Classes:*
 
